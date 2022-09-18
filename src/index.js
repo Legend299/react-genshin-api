@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import GetCharacterList from './components/api/GetCharacterList';
-import NavigationBar from './components/navigator/NavigationBar';
+import './index.css';
+import App from './App';
+import { CharacterContextProvider } from './context/CharacterContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-
-root.render(<>
-  <NavigationBar/>
-  <GetCharacterList/>
-</>);
+root.render(
+  <React.StrictMode>
+    <CharacterContextProvider>
+      <App />
+    </CharacterContextProvider>
+  </React.StrictMode>
+);
