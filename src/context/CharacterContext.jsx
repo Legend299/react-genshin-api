@@ -7,6 +7,8 @@ export function CharacterContextProvider(props) {
   const [character, setCharacter] = useState([]);
   const [character_image, setCharacterimage] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     getCharacters();
   }, []);
@@ -21,7 +23,7 @@ export function CharacterContextProvider(props) {
       const res_data = await res.json();
 
       const res_image = await fetch(
-        characterList() + '/' + firstData[index] + '/gacha-splash'
+        characterList() + '/' + firstData[index] + '/portrait'
       );
       const res_image_url = await res_image.url;
 
@@ -30,6 +32,7 @@ export function CharacterContextProvider(props) {
     }
     setCharacter(response);
     setCharacterimage(response_images);
+    setLoading(true);
   };
 
   return (
@@ -37,6 +40,7 @@ export function CharacterContextProvider(props) {
       value={{
         character,
         character_image,
+        loading,
       }}
     >
       {props.children}
