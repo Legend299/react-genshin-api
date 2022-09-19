@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-genshin-api/static/css/main.e88d788c.css",
-    "main.js": "/react-genshin-api/static/js/main.ffd21bff.js",
+    "main.js": "/react-genshin-api/static/js/main.e5b0f9ff.js",
     "index.html": "/react-genshin-api/index.html",
     "main.e88d788c.css.map": "/react-genshin-api/static/css/main.e88d788c.css.map",
-    "main.ffd21bff.js.map": "/react-genshin-api/static/js/main.ffd21bff.js.map"
+    "main.e5b0f9ff.js.map": "/react-genshin-api/static/js/main.e5b0f9ff.js.map"
   },
   "entrypoints": [
     "static/css/main.e88d788c.css",
-    "static/js/main.ffd21bff.js"
+    "static/js/main.e5b0f9ff.js"
   ]
 }
