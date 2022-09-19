@@ -1,11 +1,9 @@
-import CharacterCard from './components/CharacterCard';
+import CharacterList from './components/CharacterList';
 
 function App() {
   return (
-    <main className='bg-zinc-900'>
-      <div className='container mx-auto'>
-        <CharacterCard />
-      </div>
+    <main className='bg-zinc-800'>
+      <CharacterList />
     </main>
   );
 }

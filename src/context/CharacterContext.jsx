@@ -27,8 +27,10 @@ export function CharacterContextProvider(props) {
       );
       const res_image_url = await res_image.url;
 
+      if(!res_image.ok) response_images.push('404');
+      else response_images.push(res_image_url);
+
       response.push(res_data);
-      response_images.push(res_image_url);
     }
     setCharacter(response);
     setCharacterimage(response_images);
@@ -47,3 +49,29 @@ export function CharacterContextProvider(props) {
     </CharacterContext.Provider>
   );
 }
+
+/**
+ * "availableImages": [
+
+    "card",
+    "constellation",
+    "constellation-1",
+    "constellation-2",
+    "constellation-3",
+    "constellation-4",
+    "constellation-5",
+    "constellation-6",
+    "gacha-card",
+    "gacha-splash",
+    "icon",
+    "icon-big",
+    "icon-side",
+    "portrait",
+    "talent-burst",
+    "talent-na",
+    "talent-passive-0",
+    "talent-passive-1",
+    "talent-passive-2",
+    "talent-skill"
+]
+ */

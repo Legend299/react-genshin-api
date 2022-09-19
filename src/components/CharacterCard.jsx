@@ -1,56 +1,33 @@
-import { useContext } from 'react';
-import { CharacterContext } from '../context/CharacterContext';
-import Loading from './Loading';
-
-function CharacterCard() {
-  const { character, character_image, loading } = useContext(CharacterContext);
-
-  console.log(character);
-
-  if (!loading) return <Loading />;
+function CharacterCard({ data }) {
+  const {
+    card_color,
+    card_text_color,
+    card_image,
+    card_main_name,
+    card_surname,
+    card_element,
+    card_weapon,
+    card_description,
+  } = data;
 
   return (
-    <div className="p-6">
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-        {character.map((item, index) => (
-          <div className="overflow-hidden rounded-2xl bg-gray-50">
-            <img
-              className="object-top w-full bg-slate-800"
-              src={character_image[index]}
-              alt={item.name + '_gacha_image'}
-            />
-
-            <div className="p-6">
-              <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-                <div>
-                  <p className="text-gray-400 mb-4">
-                    {item.affiliation} • {item.nation}
-                  </p>
-                  <h2 className="mt-2 text-lg font-semibold bg-slate-700 rounded-xl inline text-white p-2">
-                    {item.name}
-                  </h2>
-                </div>
-                <span className="mt-2 inline-block rounded-full p-3 text-lg font-medium text-black">
-                  {item.vision}
-                </span>
-              </div>
-
-              <hr className="mt-4 mb-4" />
-
-              <div className="flex flex-wrap justify-between">
-                <p className="inline-flex items-center">
-                  <span className="ml-2 text-gray-600">
-                    {item.description
-                      ? item.description
-                      : 'No se encontró una descripción'}
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
+    <article
+      className={`flex flex-col shadow-xl mx-auto ${card_color} max-w-sm py-20 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer mt-0 md:mt-20 max-h-190 rounded-md`}
+    >
+      <div className="min-h-62">
+        <img className="mx-auto" src={card_image} alt="" />
       </div>
-    </div>
+      <h1 className="font-normal text-2xl mt-28 text-gray-700">
+        {card_surname}
+      </h1>
+      <h2 className={`font-extrabold text-5xl mb-10 ${card_text_color}`}>
+        {card_main_name}
+      </h2>
+      <h2 className="font-bold mb-5 text-gray-800">
+        <b className={card_text_color}>{card_element}</b> - {card_weapon}
+      </h2>
+      <p className="text-lg leading-relaxed text-gray-900">{card_description}</p>
+    </article>
   );
 }
 

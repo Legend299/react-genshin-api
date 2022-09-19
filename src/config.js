@@ -21,6 +21,6 @@
     "talent-passive-2",
     "talent-skill"
 */
-
+//https://api.genshin.dev
 const API_URL = 'https://api.genshin.dev';
 export default API_URL;
